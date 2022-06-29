@@ -1,87 +1,89 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Master Page</title>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+        body {
+            font-family: verdana;
+        }
+
+        .title {
+            font-family: verdana;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:ToolkitScriptManager ID="ScriptManager1" runat="server">
-        </asp:ToolkitScriptManager>
-        
-        
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
-        
-        
-    
-    <table style="border-color:Gray;width:100%" border="2pt" cellpadding="5px">
-    <tr >
-        <td style="width:100px" align="center">&nbsp;<img alt="Logo" src="Images/ChessLogo.jpg" 
-            style="width: 151px; height: 91px; text-align: center;" /></td>
+        <div>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
 
+                    <table style="border-color: Gray; width: 100%" border="2pt" cellpadding="5px">
+                        <tr>
+                            <td style="width: 100px" align="center">&nbsp;<img alt="Logo" src="Images/ChessLogo.jpg"
+                                style="width: 151px; height: 91px; text-align: center;" /></td>
 
-    <td style="text-align: center; background-color: #4a85e2;">
-        <asp:Label ID="Label1" runat="server" Text="44th FIDE CHESS OLYMPIAD CHENNAI 2022" 
-            Font-Bold="True" Font-Names="Verdana" Font-Size="X-Large" ForeColor="#b3cbf2" 
-            style="text-align: center"></asp:Label></td>
-    </tr>
+                            <td style="text-align: center; background-color: #191970;">
+                                <h2 class="title">44th FIDE CHESS OLYMPIAD CHENNAI 2022</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <asp:LinkButton ID="creation1" runat="server" Font-Bold="True"
+                                    Font-Names="Verdana" ForeColor="#CC3399" OnClick="creation1_Click"
+                                    BorderColor="#66FFFF" BorderStyle="Outset" Font-Size="Small">DPH , DDHS & Food Safety </asp:LinkButton>
 
-  
-
-<tr>
-    <td colspan="2">
-        <asp:LinkButton ID="creation1" runat="server" Font-Bold="True" 
-            Font-Names="Verdana" ForeColor="#CC3399" onclick="creation1_Click" 
-            BorderColor="#66FFFF" BorderStyle="Outset" Font-Size="Small">DPH , DDHS & Food Safety </asp:LinkButton>
-
-&nbsp;
-        <asp:LinkButton ID="mc" runat="server" Font-Bold="True" Font-Names="Verdana" 
-            onclick="mc_Click" BorderColor="#66FFFF" BorderStyle="Outset" 
+                                &nbsp;
+        <asp:LinkButton ID="mc" runat="server" Font-Bold="True" Font-Names="Verdana"
+            OnClick="mc_Click" BorderColor="#66FFFF" BorderStyle="Outset"
             CausesValidation="False" Font-Size="Small" ForeColor="#CC3399">Add Patient Details</asp:LinkButton>
-&nbsp;
-        <asp:LinkButton ID="logout" runat="server" Font-Bold="True" 
-            Font-Names="Verdana" onclick="logout_Click" BorderColor="#66FFFF" 
-            BorderStyle="Outset" CausesValidation="False" Font-Size="Small" 
+                                &nbsp;
+        <asp:LinkButton ID="logout" runat="server" Font-Bold="True"
+            Font-Names="Verdana" OnClick="logout_Click" BorderColor="#66FFFF"
+            BorderStyle="Outset" CausesValidation="False" Font-Size="Small"
             ForeColor="#CC3399">Logout</asp:LinkButton>
 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-    <asp:Label ID="userName" runat="server" Font-Bold="True" Font-Names="Verdana" 
-            Font-Size="Large" ForeColor="#663300"></asp:Label>
-    
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:Label ID="userName" runat="server" Font-Bold="True" Font-Names="Verdana"
+        Font-Size="Large" ForeColor="#663300"></asp:Label>
+
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <asp:Label ID="lbl_medicallocation" runat="server" Font-Bold="True" Font-Names="Verdana" Font-Size="Medium" ForeColor="#663300"></asp:Label>
-</td></tr>
+                            </td>
+                        </tr>
 
 
-<tr><td colspan="2">
-    
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    
-        
-    </td></tr>
-<tr><td colspan="2" bgcolor="Black" style="text-align: center">
-    
-    <asp:Label ID="Label2" runat="server" Font-Names="Verdana" Font-Size="X-Small" 
-        ForeColor="White" 
-        Text="GVK Emergency Management and Research Institute (GVK EMRI)  Tamil Nadu"></asp:Label>
-    
-    </td></tr>
-    
-    </table>
-    </ContentTemplate>
-        </asp:UpdatePanel>
-    </div>
+                        <tr>
+                            <td colspan="2">
+
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" bgcolor="Black" style="text-align: center">
+
+                                <asp:Label ID="Label2" runat="server" Font-Names="Verdana" Font-Size="X-Small"
+                                    ForeColor="White"
+                                    Text="GVK Emergency Management and Research Institute (GVK EMRI)  Tamil Nadu"></asp:Label>
+
+                            </td>
+                        </tr>
+
+                    </table>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
     </form>
 </body>
 </html>

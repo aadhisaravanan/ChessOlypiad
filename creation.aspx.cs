@@ -1,23 +1,15 @@
 ﻿using System;
-using System.Collections;
 using System.Configuration;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
 using System.Data.SqlClient;
-using System.Globalization;
-public partial class creation : System.Web.UI.Page
+
+public partial class Creation : Page
 {
-    SqlConnection objSqlConnection = new SqlConnection(ConfigurationSettings.AppSettings["sqlconn"].ToString());
+    private readonly SqlConnection _objSqlConnection = new SqlConnection(ConfigurationManager.AppSettings["sqlConnectionString"]);
     //SqlConnection objSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlconn"].ToString());
-    SqlDataReader drDist;
-    SqlCommand cmdDist;
+    private SqlDataReader _drDist;
+    private SqlCommand _cmdDist;
     protected void Page_PreRender(object sender, EventArgs e)
     {
         //RV1.MinimumValue = DateTime.Now.Date.ToString("dd-MM-yy");
@@ -25,9 +17,8 @@ public partial class creation : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-        Myclass mc = new Myclass();
-        if (mc.GetSession("userID") == null)
-            Response.Redirect("~/Login.aspx");
+        if (Session["userID"] == null) Response.Redirect("~/Login.aspx");
+
         if (!IsPostBack)
         {
             //cn.Open();
@@ -59,8 +50,6 @@ public partial class creation : System.Web.UI.Page
         //RV1.MinimumValue = DateTime.Today.AddYears(1).ToShortDateString();
         //RV1.MaximumValue = DateTime.Today.ToShortDateString();
         GridDisplay();
-
-
     }
 
     #region Save
@@ -140,63 +129,63 @@ public partial class creation : System.Web.UI.Page
         {
             if (InputValidationCheck())
             {
-                string hotelinspected = DDL_HotelInspected.SelectedItem.Value;
-                string restaurant = DDL_Restaurants.SelectedItem.Value;
-                string eateries = DDL_Eateries.SelectedItem.Value;
-                string streetfood = DDL_streetfood.SelectedItem.Value;
-                string otherFBOS = ddl_OtherFBOs.SelectedItem.Value;
+                var hotelinspected = DDL_HotelInspected.SelectedItem.Value;
+                var restaurant = DDL_Restaurants.SelectedItem.Value;
+                var eateries = DDL_Eateries.SelectedItem.Value;
+                var streetfood = DDL_streetfood.SelectedItem.Value;
+                var otherFbos = ddl_OtherFBOs.SelectedItem.Value;
 
-                string statutory = txt_statutory.Text;
-                string surveillance = txt_surveillance.Text;
-                string noticeissued = txt_noticeissued.Text;
-                string compounding = txt_compounding.Text;
-                string quantityseized = txt_Quantityseized.Text;
+                var statutory = txt_statutory.Text;
+                var surveillance = txt_surveillance.Text;
+                var noticeissued = txt_noticeissued.Text;
+                var compounding = txt_compounding.Text;
+                var quantityseized = txt_Quantityseized.Text;
 
-                string qtySeizedProhibitedPlastic = txt_QtySeizedProhibitedPlastic.Text;
-                string qtySeizedOtherFoods = txt_QtySeizedOtherFoods.Text;
-                string ruco = txt_ruco.Text;
-                string surplusFoodCollected = txt_SurplusFoodCollected.Text;
-                string incidenceFoodPoisoning = txt_IncidenceFoodPoisoning.Text;
+                var qtySeizedProhibitedPlastic = txt_QtySeizedProhibitedPlastic.Text;
+                var qtySeizedOtherFoods = txt_QtySeizedOtherFoods.Text;
+                var ruco = txt_ruco.Text;
+                var surplusFoodCollected = txt_SurplusFoodCollected.Text;
+                var incidenceFoodPoisoning = txt_IncidenceFoodPoisoning.Text;
 
-                string fogging = DDL_Fogging.SelectedItem.Value;
-                string disinfection = DDL_Disinfection.SelectedItem.Value;
-                string chlorination = DDL_Chlorination.SelectedItem.Value;
-                string larvicidal = DDL_Larvicidal.SelectedItem.Value;
+                var fogging = DDL_Fogging.SelectedItem.Value;
+                var disinfection = DDL_Disinfection.SelectedItem.Value;
+                var chlorination = DDL_Chlorination.SelectedItem.Value;
+                var larvicidal = DDL_Larvicidal.SelectedItem.Value;
 
-                string swap = txtswap.Text;
-                string mp = txtmp.Text;
-                string kitchen = ddl_kitchen.SelectedItem.Value;
-                string selfreportd = txt_selfreportd.Text;
-                string totalcasesunder = txt_totalcasesunder.Text;
-                string preauthraised = txt_preauthraised.Text;
-                string preauthclaimed = txt_preauthclaimed.Text;
-                string patientAyushTrt = txt_patientAyushTrt.Text;
-                string underyoga = txt_underyoga.Text;
+                var swap = txtswap.Text;
+                var mp = txtmp.Text;
+                var kitchen = ddl_kitchen.SelectedItem.Value;
+                var selfreportd = txt_selfreportd.Text;
+                var totalcasesunder = txt_totalcasesunder.Text;
+                var preauthraised = txt_preauthraised.Text;
+                var preauthclaimed = txt_preauthclaimed.Text;
+                var patientAyushTrt = txt_patientAyushTrt.Text;
+                var underyoga = txt_underyoga.Text;
 
-                string user = Session["userID"] == null ? string.Empty : Session["userID"].ToString();
-                string location = Session["location"] == null ? string.Empty : Session["location"].ToString();
-            
+                var user = Session["userID"] == null ? string.Empty : Session["userID"].ToString();
+                var location = Session["location"] == null ? string.Empty : Session["location"].ToString();
+
                 //string user = userID.Text;
 
-                string sqlValues = string.Format("'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','{28}','{29}','{30}' ", hotelinspected, restaurant, eateries, streetfood, otherFBOS, statutory, surveillance, noticeissued, compounding, quantityseized, qtySeizedProhibitedPlastic,qtySeizedOtherFoods, ruco, surplusFoodCollected, incidenceFoodPoisoning, fogging, disinfection, chlorination, larvicidal, swap, mp, kitchen, selfreportd, totalcasesunder, preauthraised, preauthclaimed, patientAyushTrt, underyoga,location,user, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-                string strInsertQry = "INSERT INTO  FOODSAFETY_DETAILS (INSPECTED_HOTEL,	RESTAURANT_INSPECTED,	EATERIES_INSPECTED,	STREETFOOD_INSPECTED,	FBOS_INSPECTED,	STATUTORY_SAMP_LIFTED,	SURVEILLANCE_SAM_LIFTED,	NOTICE_ISSUED,	COMPOUNDING_OFFENCE,	QTY_SEIZED_PROHIBITED_FOOD,	QTY_SEIZED_PROHIBITED_PLASTIC,	QTY_SEIZED_OTHER_FOOD,	RUCO,	SURPLUS_FOOD_COLLECTED,	INCIDENCE_FOOD_POISINING,	FOGGING,	DISINFECTION,	CHLORINATION,	SWAP,	LARVICIDAL,	KITCHEN_HYGIENE,	SMEARForMP,	SELFREPORTED,	TOTAL_CASESUNDES_SCHME,	PRE_AUTHRAISED,	PER_AUTHCLAIMED,	PATIENT_AYUSH,	UNDER_YOGO,HOTELNAME,USER_ID,UPDATED_DTM) values(" + sqlValues + ")";
+                var sqlValues = string.Format("'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','{28}','{29}','{30}' ", hotelinspected, restaurant, eateries, streetfood, otherFbos, statutory, surveillance, noticeissued, compounding, quantityseized, qtySeizedProhibitedPlastic, qtySeizedOtherFoods, ruco, surplusFoodCollected, incidenceFoodPoisoning, fogging, disinfection, chlorination, larvicidal, swap, mp, kitchen, selfreportd, totalcasesunder, preauthraised, preauthclaimed, patientAyushTrt, underyoga, location, user, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                var strInsertQry = "INSERT INTO  FOODSAFETY_DETAILS (INSPECTED_HOTEL,	RESTAURANT_INSPECTED,	EATERIES_INSPECTED,	STREETFOOD_INSPECTED,	FBOS_INSPECTED,	STATUTORY_SAMP_LIFTED,	SURVEILLANCE_SAM_LIFTED,	NOTICE_ISSUED,	COMPOUNDING_OFFENCE,	QTY_SEIZED_PROHIBITED_FOOD,	QTY_SEIZED_PROHIBITED_PLASTIC,	QTY_SEIZED_OTHER_FOOD,	RUCO,	SURPLUS_FOOD_COLLECTED,	INCIDENCE_FOOD_POISINING,	FOGGING,	DISINFECTION,	CHLORINATION,	SWAP,	LARVICIDAL,	KITCHEN_HYGIENE,	SMEARForMP,	SELFREPORTED,	TOTAL_CASESUNDES_SCHME,	PRE_AUTHRAISED,	PER_AUTHCLAIMED,	PATIENT_AYUSH,	UNDER_YOGO,HOTELNAME,USER_ID,UPDATED_DTM) values(" + sqlValues + ")";
 
-                SqlCommand objSQLCmd = new SqlCommand(strInsertQry, objSqlConnection);
-                objSQLCmd.CommandType = CommandType.Text;
-                objSqlConnection.Open();
-                objSQLCmd.ExecuteNonQuery();
+                var objSqlCmd = new SqlCommand(strInsertQry, _objSqlConnection);
+                objSqlCmd.CommandType = CommandType.Text;
+                _objSqlConnection.Open();
+                objSqlCmd.ExecuteNonQuery();
                 lblresult.ForeColor = System.Drawing.Color.Green;
                 lblresult.Text = "Data added successfully!";
                 ClearInputFields();
             }
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
-            Response.Write("Exception in Saving data: " + ex.Message.ToString());
+            Response.Write("Exception in Saving data: " + ex.Message);
         }
         finally
         {
-            objSqlConnection.Close();
+            _objSqlConnection.Close();
         }
 
         GridDisplay();
@@ -207,13 +196,13 @@ public partial class creation : System.Web.UI.Page
     #region Grid
     public void GridDisplay()
     {
-        objSqlConnection.Open();
-        SqlCommand cmd5 = new SqlCommand("SP_FOOD_DTLS_GV", objSqlConnection);
+        _objSqlConnection.Open();
+        var cmd5 = new SqlCommand("SP_FOOD_DTLS_GV", _objSqlConnection);
         cmd5.CommandType = CommandType.StoredProcedure;
         //cmd5.Parameters.AddWithValue("did", Convert.ToInt16(Session["depart"].ToString()));
         //cmd5.Parameters.AddWithValue("did", District1.SelectedValue.ToString());
-        SqlDataAdapter adap = new SqlDataAdapter(cmd5);
-        DataSet dsAll = new DataSet();
+        var adap = new SqlDataAdapter(cmd5);
+        var dsAll = new DataSet();
         adap.Fill(dsAll);
         gv.DataSource = dsAll.Tables[0];
         gv.DataBind();
@@ -227,7 +216,7 @@ public partial class creation : System.Web.UI.Page
         gv.Columns[5].ItemStyle.Width = 50;
         gv.Columns[6].ItemStyle.Width = 50;
         gv.Columns[7].ItemStyle.Width = 50;
-        objSqlConnection.Close();
+        _objSqlConnection.Close();
     }
     #endregion
 
@@ -471,13 +460,13 @@ public partial class creation : System.Web.UI.Page
         //    //    gv.Rows[i].Cells[0].BackColor = System.Drawing.Color.Green;
         //    //    gv.Rows[i].Cells[0].ForeColor = System.Drawing.Color.White;
         //    //}
-        }
     }
-    //protected void District1_SelectedIndexChanged(object sender, EventArgs e)
-    //{
-    //    //Label7.Text = District1.SelectedValue.ToString();
-    //}
-    //protected void gv_RowDataBound(object sender, GridViewRowEventArgs e)
-    //{
-    //    e.Row.Cells[5].Text = e.Row.Cells[5].Text.Replace("|", "<hr/>");
-    //}
+}
+//protected void District1_SelectedIndexChanged(object sender, EventArgs e)
+//{
+//    //Label7.Text = District1.SelectedValue.ToString();
+//}
+//protected void gv_RowDataBound(object sender, GridViewRowEventArgs e)
+//{
+//    e.Row.Cells[5].Text = e.Row.Cells[5].Text.Replace("|", "<hr/>");
+//}

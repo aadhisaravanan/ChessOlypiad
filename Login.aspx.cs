@@ -1,21 +1,11 @@
 ﻿using System;
 using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Collections;
 using System.Data.SqlClient;
-using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
-using System.IO;
 
-public partial class Login : System.Web.UI.Page
+public partial class Login : Page
 {
-    SqlConnection objSqlConnection = new SqlConnection(ConfigurationSettings.AppSettings["sqlconn"].ToString());
+    private readonly SqlConnection _objSqlConnection = new SqlConnection(ConfigurationManager.AppSettings["sqlConnectionString"]);
 
     //SqlConnection objSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlconn"].ToString());
 
@@ -29,9 +19,9 @@ public partial class Login : System.Web.UI.Page
     }
     protected void login_Click(object sender, EventArgs e)
     {
-        objSqlConnection.Open();
-        SqlCommand cmdAll = new SqlCommand("select * from LoginMaster where userID='"+ uid.Text +"' and Password='"+ pw.Text +"'", objSqlConnection);
-        SqlDataReader dr = cmdAll.ExecuteReader();
+        _objSqlConnection.Open();
+        var cmdAll = new SqlCommand("select * from LoginMaster where userID='"+ uid.Text +"' and Password='"+ pw.Text +"'", _objSqlConnection);
+        var dr = cmdAll.ExecuteReader();
         if (dr.HasRows == true)
         {
             dr.Read();
@@ -62,7 +52,7 @@ public partial class Login : System.Web.UI.Page
         {
             Errmsg.Text = "Invalid User ID / Password";
         }
-        objSqlConnection.Close();
+        _objSqlConnection.Close();
     }
     protected void changePass_Click(object sender, EventArgs e)
     {
@@ -70,17 +60,17 @@ public partial class Login : System.Web.UI.Page
     }
     protected void passSub_Click(object sender, EventArgs e)
     {
-        objSqlConnection.Open();
-        SqlCommand cmdC = new SqlCommand("select * from LoginMaster where userID='"+ uidC.Text +"' and Password='"+ passC.Text +"'", objSqlConnection);
-        SqlDataReader drC = cmdC.ExecuteReader();
-        int sno = -1;
+        _objSqlConnection.Open();
+        var cmdC = new SqlCommand("select * from LoginMaster where userID='"+ uidC.Text +"' and Password='"+ passC.Text +"'", _objSqlConnection);
+        var drC = cmdC.ExecuteReader();
+        var sno = -1;
         if (drC.HasRows == true)
         {
             drC.Read();
             sno = Convert.ToInt16(drC[0].ToString());
             drC.Close();
-            SqlCommand cmdU = new SqlCommand("update loginmaster set Password='" + npassC.Text + "' where id=" + sno, objSqlConnection);
-            int j = cmdU.ExecuteNonQuery();
+            var cmdU = new SqlCommand("update loginmaster set Password='" + npassC.Text + "' where id=" + sno, _objSqlConnection);
+            var j = cmdU.ExecuteNonQuery();
             if (j > 0)
             {
                 cMsg.Visible = true;
@@ -91,6 +81,6 @@ public partial class Login : System.Web.UI.Page
         {
             Errmsg.Text = "Invalid User ID / Password";
         }
-        objSqlConnection.Close();
+        _objSqlConnection.Close();
     }
 }
