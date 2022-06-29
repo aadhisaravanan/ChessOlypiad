@@ -61,7 +61,7 @@
        <td class="auto-style11" style="text-align: left">
         <asp:DropDownList ID="ddl_hotelname" runat="server" Height="20px" Width="300px" 
             ValidationGroup="cp">
-   <asp:ListItem Text="-- Please Selet --" Value="-- Please Selet --"></asp:ListItem>
+   <asp:ListItem Text="-- Please Select --" Value="-- Please Select --"></asp:ListItem>
 <%--   <asp:ListItem Text="ITC WELCOME" Value="ITC WELCOME"></asp:ListItem>
    <asp:ListItem Text="NO" Value="NO"></asp:ListItem>--%>
         </asp:DropDownList>
@@ -128,7 +128,7 @@
      <td class="auto-style11" style="text-align: left">
         <asp:DropDownList ID="ddl_sex" runat="server" Height="20px" Width="100px" 
             ValidationGroup="cp">
-   <asp:ListItem Text="-- Please Selet --" Value="-- Please Selet --"></asp:ListItem>
+   <asp:ListItem Text="-- Please Select --" Value="-- Please Select --"></asp:ListItem>
    <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
    <asp:ListItem Text="Female" Value="Female"></asp:ListItem>
         </asp:DropDownList>
@@ -156,7 +156,7 @@
     <td class="auto-style11" style="text-align: left">
         <asp:DropDownList ID="ddl_opdaycare" runat="server" Height="20px" Width="100px" 
             ValidationGroup="cp">
-   <asp:ListItem Text="-- Please Selet --" Value="-- Please Selet --"></asp:ListItem>
+   <asp:ListItem Text="-- Please Select --" Value="-- Please Select --"></asp:ListItem>
    <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
    <asp:ListItem Text="No" Value="No"></asp:ListItem>
         </asp:DropDownList>
@@ -175,7 +175,7 @@
     <td class="auto-style11" style="text-align: left">
         <asp:DropDownList ID="ddl_opstaticteamtreated" runat="server" Height="20px" Width="100px" 
             ValidationGroup="cp">
-   <asp:ListItem Text="-- Please Selet --" Value="-- Please Selet --"></asp:ListItem>
+   <asp:ListItem Text="-- Please Select --" Value="-- Please Select --"></asp:ListItem>
    <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
    <asp:ListItem Text="No" Value="No"></asp:ListItem>
         </asp:DropDownList>
@@ -189,7 +189,7 @@
            <td class="style3" style="text-align: left">
         <asp:DropDownList ID="ddl_staticteamdiagnosis" runat="server" Height="30px" Width="200px" 
             ValidationGroup="cp">
-             <asp:ListItem Text="-- Please Selet --" Value="-- Please Selet --"></asp:ListItem>
+             <asp:ListItem Text="-- Please Select --" Value="-- Please Select --"></asp:ListItem>
         </asp:DropDownList>
     </td>
 
@@ -203,7 +203,7 @@
     <td class="auto-style11" style="text-align: left">
         <asp:DropDownList ID="ddl_opspecilistteam" runat="server" Height="20px" Width="100px" 
             ValidationGroup="cp">
-   <asp:ListItem Text="-- Please Selet --" Value="-- Please Selet --"></asp:ListItem>
+   <asp:ListItem Text="-- Please Select --" Value="-- Please Select --"></asp:ListItem>
    <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
    <asp:ListItem Text="No" Value="No"></asp:ListItem>
         </asp:DropDownList>
@@ -217,7 +217,7 @@
            <td class="style3" style="text-align: left">
         <asp:DropDownList ID="ddl_opspecilistteamdignosis" runat="server" Height="30px" Width="200px" 
             ValidationGroup="cp">
-            <asp:ListItem Text="-- Please Selet --" Value="-- Please Selet --"></asp:ListItem>
+            <asp:ListItem Text="-- Please Select --" Value="-- Please Select --"></asp:ListItem>
         </asp:DropDownList>
     </td>
 
@@ -231,7 +231,7 @@
     <td class="auto-style11" style="text-align: left">
         <asp:DropDownList ID="ddl__ivfluids" runat="server" Height="20px" Width="100px" 
             ValidationGroup="cp">
-   <asp:ListItem Text="-- Please Selet --" Value="-- Please Selet --"></asp:ListItem>
+   <asp:ListItem Text="-- Please Select --" Value="-- Please Select --"></asp:ListItem>
    <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
    <asp:ListItem Text="No" Value="No"></asp:ListItem>
         </asp:DropDownList>
@@ -245,7 +245,7 @@
      <td class="auto-style11" style="text-align: left">
         <asp:DropDownList ID="ddl_bloodinvestigation" runat="server" Height="20px" Width="100px" 
             ValidationGroup="cp">
-   <asp:ListItem Text="-- Please Selet --" Value="-- Please Selet --"></asp:ListItem>
+   <asp:ListItem Text="-- Please Select --" Value="-- Please Select --"></asp:ListItem>
    <asp:ListItem Text="CBG" Value="CBG"></asp:ListItem>
    <asp:ListItem Text="ECG" Value="ECG"></asp:ListItem>
         </asp:DropDownList>
@@ -262,7 +262,7 @@
     <td class="auto-style11" style="text-align: left">
         <asp:DropDownList ID="ddl_rtpcr" runat="server" Height="20px" Width="100px" 
             ValidationGroup="cp">
-   <asp:ListItem Text="-- Please Selet --" Value="-- Please Selet --"></asp:ListItem>
+   <asp:ListItem Text="-- Please Select --" Value="-- Please Select --"></asp:ListItem>
    <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
    <asp:ListItem Text="No" Value="No"></asp:ListItem>
         </asp:DropDownList>
@@ -276,7 +276,7 @@
      <td class="auto-style11" style="text-align: left">
         <asp:DropDownList ID="ddl_covidpositive" runat="server" Height="20px" Width="100px" 
             ValidationGroup="cp">
-   <asp:ListItem Text="-- Please Selet --" Value="-- Please Selet --"></asp:ListItem>
+   <asp:ListItem Text="-- Please Select --" Value="-- Please Select --"></asp:ListItem>
    <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
    <asp:ListItem Text="No" Value="No"></asp:ListItem>
         </asp:DropDownList>
@@ -293,7 +293,7 @@
     <td class="auto-style11" style="text-align: left">
         <asp:DropDownList ID="ddl_refrral" runat="server" Height="20px" Width="100px" 
             ValidationGroup="cp">
-   <asp:ListItem Text="-- Please Selet --" Value="-- Please Selet --"></asp:ListItem>
+   <asp:ListItem Text="-- Please Select --" Value="-- Please Select --"></asp:ListItem>
    <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
    <asp:ListItem Text="No" Value="No"></asp:ListItem>
         </asp:DropDownList>
@@ -320,7 +320,7 @@
     <td class="auto-style11" style="text-align: left">
         <asp:DropDownList ID="ddl_shiftedbyambualnce" runat="server" Height="20px" Width="100px" 
             ValidationGroup="cp">
-   <asp:ListItem Text="-- Please Selet --" Value="-- Please Selet --"></asp:ListItem>
+   <asp:ListItem Text="-- Please Select --" Value="-- Please Select --"></asp:ListItem>
    <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
    <asp:ListItem Text="No" Value="No"></asp:ListItem>
         </asp:DropDownList>
@@ -334,7 +334,7 @@
       <td class="style3" style="text-align: left">
         <asp:DropDownList ID="ddl_mlc" runat="server" Height="30px" Width="200px" 
             ValidationGroup="cp">
-               <asp:ListItem Text="-- Please Selet --" Value="-- Please Selet --"></asp:ListItem>
+               <asp:ListItem Text="-- Please Select --" Value="-- Please Select --"></asp:ListItem>
    <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
    <asp:ListItem Text="No" Value="No"></asp:ListItem>
         </asp:DropDownList>
@@ -363,7 +363,7 @@
        <td class="auto-style11" style="text-align: left">
         <asp:DropDownList ID="ddl_discharged" runat="server" Height="20px" Width="100px" 
             ValidationGroup="cp">
-   <asp:ListItem Text="-- Please Selet --" Value="-- Please Selet --"></asp:ListItem>
+   <asp:ListItem Text="-- Please Select --" Value="-- Please Select --"></asp:ListItem>
    <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
    <asp:ListItem Text="NO" Value="NO"></asp:ListItem>
         </asp:DropDownList>
@@ -408,7 +408,7 @@
     <td class="auto-style11" style="text-align: left">
         <asp:DropDownList ID="ddl_dischargedstatus" runat="server" Height="20px" Width="100px" 
             ValidationGroup="cp">
-   <asp:ListItem Text="-- Please Selet --" Value="-- Please Selet --"></asp:ListItem>
+   <asp:ListItem Text="-- Please Select --" Value="-- Please Select --"></asp:ListItem>
    <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
    <asp:ListItem Text="No" Value="No"></asp:ListItem>
         </asp:DropDownList>
